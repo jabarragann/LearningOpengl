@@ -16,7 +16,7 @@ GLAD_INC = $(GLAD)/include
 
 TARGET := create_window 
 TARGET := $(addprefix $(BUILD)/, $(TARGET))
-CPP_FILES := create_window.cpp 
+CPP_FILES := create_triangle.cpp 
 OBJECTS := $(CPP_FILES:.cpp=.o) glad.o
 OBJECTS := $(addprefix $(BUILD)/, $(OBJECTS))
 
