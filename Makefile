@@ -10,21 +10,24 @@ LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 # Directories
 SRC = src
 BUILD = build
-INCLUDES = -I$(GLAD_INC)
+INCLUDES = -I$(GLAD_INC) -I./include
 GLAD = ./glad
 GLAD_INC = $(GLAD)/include
 
-TARGET := create_window 
-TARGET := $(addprefix $(BUILD)/, $(TARGET))
-CPP_FILES := create_triangle.cpp 
+TARGETS := create_window create_triangle 
+TARGETS := $(addprefix $(BUILD)/, $(TARGETS))
+CPP_EXEC := create_window.cpp create_triangle.cpp
+CPP_FILES := Shader.cpp 
 OBJECTS := $(CPP_FILES:.cpp=.o) glad.o
 OBJECTS := $(addprefix $(BUILD)/, $(OBJECTS))
 
 # Recipes
-all: $(TARGET)
+all: $(TARGETS)
+$(BUILD)/create_window: $(BUILD)/create_window.o $(OBJECTS) 
+$(BUILD)/create_triangle: $(BUILD)/create_triangle.o $(OBJECTS) 
 
 # Link
-$(TARGET): $(OBJECTS) 
+$(TARGETS): $(OBJECTS) 
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 # Compile objects
@@ -34,13 +37,16 @@ $(BUILD)/glad.o: $(GLAD)/src/glad.c | $(BUILD)
 $(BUILD)/%.o: $(SRC)/%.cpp | $(BUILD)
 	$(CXX) $(CXXFLAGS) -c $< -o $@    
 
-.PHONY : clean run-test
+$(BUILD)/%.o: $(SRC)/%.cpp $(INCLUDES) | $(BUILD)
+	$(CXX) $(CXXFLAGS) -c $< -o $@    
+
+.PHONY : all clean run-test
 
 clean :
 	rm -rf $(BUILD)
 
-run-test: $(TARGET)
-	./$(TARGET)
+run-test: $(TARGETS)
+	./$(BUILD)/create_triangle
 
 $(BUILD):
 	mkdir -p $(BUILD)
