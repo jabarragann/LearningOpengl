@@ -1,5 +1,15 @@
 # Opengl learning repo
 
+## Depedencies
+
+Install glfw3
+```bash
+sudo apt-get install libglfw3
+sudo apt-get install libglfw3-dev
+```
+
+Install glad
+
 ## Compiling instructions:
 Compile all executables with `make all`.
 
