@@ -19,6 +19,10 @@ To compile specific executables, use `make build/<executable_name>` where `<exec
 make build/create_triangle2
 ```
 
+## Opengl learning resources
+- [Learnopengl](https://learnopengl.com/)
+- [The book of shaders](https://thebookofshaders.com/)
+
 ## Known issues
 * Code needs to be executed from the root of the repo. Otherwise, the shaders won't be found.
 * A segmentation fault error is triggered when exiting the program on WSL2. This issue doesn't occur on native Linux.
