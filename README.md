@@ -23,6 +23,7 @@ make build/create_triangle2
 - [Learnopengl](https://learnopengl.com/)
 - [The book of shaders](https://thebookofshaders.com/)
 - [glslViewer project](https://github.com/patriciogonzalezvivo/glslViewer/tree/main)
+- [Abubujs-Shaders-tutorials](https://www.abubujs.org/learning/tutorials/?help=time-marching-fhn)
 
 ## Known issues
 * Code needs to be executed from the root of the repo. Otherwise, the shaders won't be found.
