@@ -33,7 +33,9 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+    int width = 400;
+    int height = 400;
+    GLFWwindow* window = glfwCreateWindow(width, height, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -76,6 +78,10 @@ int main()
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0); 
 
+    // Uniform locations
+    int resolution_uniform_location = glGetUniformLocation(ourShader.ID, "u_resolution");
+    int time_uniform_location = glGetUniformLocation(ourShader.ID, "u_time");
+
     // uncomment this call to draw in wireframe polygons.
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -90,6 +96,13 @@ int main()
 
         // Draw
         ourShader.activate_shader();
+        // Update u_resolution
+        glfwGetWindowSize(window, &width, &height);
+        glUniform2i(resolution_uniform_location, width, height);
+        // Update u_time
+        float time_value = glfwGetTime();
+        glUniform1f(time_uniform_location, time_value);
+         
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
