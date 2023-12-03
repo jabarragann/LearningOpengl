@@ -1,7 +1,7 @@
 # Directories
 SRC = src
 BUILD = build
-BUILD_ABS_PATH = "$(shell pwd)/$(BUILD)"
+BUILD_ABS_PATH = $(shell pwd)/$(BUILD)
 #This could be accomplish too with --> BUILD_ABS_PATH = \"$$(pwd)/$(BUILD)\"
 INCLUDE = include
 
