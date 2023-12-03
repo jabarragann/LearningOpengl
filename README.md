@@ -26,7 +26,7 @@ make build/create_triangle2
 - [Abubujs-Shaders-tutorials](https://www.abubujs.org/learning/tutorials/?help=time-marching-fhn)
 
 ## Known issues
-* Code needs to be executed from the root of the repo. Otherwise, the shaders won't be found.
+* Code needs to be executed from the root of the repo. Otherwise, the shaders won't be found. Solved: path to the executable is provided at compilation time with the flag -DBIN_PATH. This flag is used in the code to find the shaders.
 * A segmentation fault error is triggered when exiting the program on WSL2. This issue doesn't occur on native Linux.
 
 ## TODO

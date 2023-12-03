@@ -1,6 +1,8 @@
 # Directories
 SRC = src
 BUILD = build
+BUILD_ABS_PATH = "$(shell pwd)/$(BUILD)"
+#This could be accomplish too with --> BUILD_ABS_PATH = \"$$(pwd)/$(BUILD)\"
 INCLUDE = include
 
 ALL_INCLUDES = -I$(GLAD_INC) -I./$(INCLUDE)
@@ -12,7 +14,7 @@ CC = gcc
 CXX = g++
 CFLAGS = -Wall -O2 $(ALL_INCLUDES)
 # CFLAGS = -Wall -ggdb -O3 $(INCLUDES)
-CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -pedantic $(ALL_INCLUDES)
+CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -pedantic $(ALL_INCLUDES) -DBIN_PATH=$(BUILD_ABS_PATH) 
 # CXXFLAGS = -Wall -ggdb -O3 $(INCLUDES)
 LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 
@@ -44,15 +46,15 @@ $(TARGETS): $(OBJECTS) $$@.o
 # Compile objects
 # Order of recipes matter. Recipe 2 has to be before recipe 3 to take into account .h prerrequisites. 
 
-# recipe 1: Complie glad
+# recipe 1: Compile glad
 $(BUILD)/glad.o: $(GLAD)/src/glad.c $(GLAD)/include/glad/glad.h | $(BUILD)
 	$(CC) -c $(CFLAGS) -o $@ $< 
 
-# recipe 2: compile objects - cpp files with header files
+# recipe 2: Compile objects - cpp files with header files
 $(BUILD)/%.o: $(SRC)/%.cpp $(INCLUDE)/%.h | $(BUILD)
 	$(CXX) $(CXXFLAGS) -c $< -o $@ 
 
-# recipe 3: compile executables - cpp files without header files
+# recipe 3: Compile executables - cpp files without header files
 $(BUILD)/%.o: $(SRC)/%.cpp | $(BUILD)
 	$(CXX) $(CXXFLAGS) -c $< -o $@    
 

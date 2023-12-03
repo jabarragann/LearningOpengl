@@ -3,6 +3,18 @@
 #include <iostream>
 #include <Shader.h>
 #include <filesystem>
+#include <string>
+
+// Define the path of the bin folder at compilation
+#ifndef BIN_PATH
+    #define BIN_PATH ./bin/
+#endif
+// Magic to surround a macro with quotes
+// Taken from: https://stackoverflow.com/questions/49810726/how-can-i-pass-a-string-as-a-preprocessor-token
+// Also see the end of: https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html#:~:text=When%20a%20macro%20parameter%20is,This%20is%20called%20stringizing
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+#define BIN_PATH_STR TOSTRING(BIN_PATH)
 
 float vertices[] = {
     // first triangle
@@ -52,10 +64,10 @@ int main()
     } 
 
     // SHADER CONFIG
-    std::filesystem::path shaderAbsPath = std::filesystem::absolute("./shaders/");
+    std::filesystem::path binary_path = std::filesystem::absolute(BIN_PATH_STR);
 
-    std::string vertex_shader = (shaderAbsPath / "shader3.vs").string();
-    std::string fragment_shader =  (shaderAbsPath / "shader3.fs").string();
+    std::string vertex_shader = (binary_path / "../shaders/shader3.vs").string();
+    std::string fragment_shader =  (binary_path / "../shaders/shader3.fs").string();
     
     Shader ourShader(vertex_shader.c_str(), fragment_shader.c_str());
 
