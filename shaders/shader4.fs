@@ -18,9 +18,9 @@ void main() {
     // float y = pow(st.x,5.0);
     // float y = smoothstep(0.4,0.7,st.x);
     // float y = smoothstep(0.2,0.5,st.x) - smoothstep(0.5,0.8,st.x);
-    // float y = sin(st.x*6.28*4.0+u_time)/2.0 + 0.5;
+    float y = sin(st.x*6.28*4.0+u_time)/2.0 + 0.5; // Moving sine wave
     // float y = fract(sin(st.x*6.28*2.0))/1.5 + 0.25;
-    float y = ceil(st.x*8.0)/8.0; 
+    // float y = ceil(st.x*8.0)/8.0; 
 
     vec3 color = vec3(y);
     // vec3 color = vec3(0.0);
