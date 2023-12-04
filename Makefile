@@ -27,6 +27,7 @@ OBJECTS := $(addprefix $(BUILD)/, $(OBJECTS))
 
 # Targets
 CPP_EXEC := create_window.cpp create_triangle.cpp create_triangle2.cpp 03_create_quad.cpp
+CPP_EXEC += 04_create_quad.cpp
 TARGETS_OBJ := $(CPP_EXEC:%.cpp=$(BUILD)/%.o)
 TARGETS := $(TARGETS_OBJ:%.o=%)
 
