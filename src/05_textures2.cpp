@@ -2,9 +2,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <Shader.h>
+#include <Texture.h>
 #include <filesystem>
-// #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
 
 // Define the path of the bin folder at compilation
 #ifndef BIN_PATH
@@ -83,23 +82,7 @@ int main()
     // TEXTURE CONFIG
     int tex_width, tex_height, nrChannels;
     std::string text1_path = (binary_path / "../textures/container.jpg").string();
-    unsigned char *data = stbi_load(text1_path.c_str(), &tex_width, &tex_height, &nrChannels, 0);
-    std::cout << "Texture 1 width: " << tex_width << " height: " << tex_height << std::endl;
-
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    // set the texture wrapping/filtering options
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, tex_width, tex_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-    glGenerateMipmap(GL_TEXTURE_2D);
-
-    stbi_image_free(data);
+    Texture my_texture(text1_path);
 
     // BUFFER CONFIG
     unsigned int VBO, VAO, EBO;
