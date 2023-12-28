@@ -26,8 +26,8 @@ OBJECTS := $(CPP_FILES:.cpp=.o) glad.o
 OBJECTS := $(addprefix $(BUILD)/, $(OBJECTS))
 
 # Targets
-CPP_EXEC := create_window.cpp create_triangle.cpp create_triangle2.cpp 03_create_quad.cpp
-CPP_EXEC += 04_create_quad.cpp
+CPP_EXEC := 00_create_window.cpp 01_create_triangle.cpp 02_create_triangle2.cpp 03_create_quad.cpp
+CPP_EXEC += 04_create_quad.cpp 05_textures.cpp
 TARGETS_OBJ := $(CPP_EXEC:%.cpp=$(BUILD)/%.o)
 TARGETS := $(TARGETS_OBJ:%.o=%)
 
