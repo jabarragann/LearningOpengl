@@ -10,6 +10,8 @@ sudo apt-get install libglfw3-dev
 
 Install glad
 
+Install glm
+
 ## Compiling instructions:
 Compile all executables with `make all`.
 
