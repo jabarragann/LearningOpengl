@@ -21,13 +21,13 @@ LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 # SHARED OBJECTS AND TARGETS  (Targets are executables)
 
 # Shared objects by multiple executables
-CPP_FILES := Shader.cpp Texture.cpp stb_image.cpp 
+CPP_FILES := Shader.cpp Texture.cpp stb_image.cpp MyGlfwWindow.cpp 
 OBJECTS := $(CPP_FILES:.cpp=.o) glad.o
 OBJECTS := $(addprefix $(BUILD)/, $(OBJECTS))
 
 # Targets
 CPP_EXEC := 00_create_window.cpp 01_create_triangle.cpp 02_create_triangle2.cpp 03_create_quad.cpp
-CPP_EXEC += 04_create_quad.cpp 05_textures.cpp 05_textures2.cpp 06_transforms.cpp
+CPP_EXEC += 04_create_quad.cpp 05_textures.cpp 05_textures2.cpp 06_transforms.cpp 07_multi_viewport.cpp
 TARGETS_OBJ := $(CPP_EXEC:%.cpp=$(BUILD)/%.o)
 TARGETS := $(TARGETS_OBJ:%.o=%)
 
