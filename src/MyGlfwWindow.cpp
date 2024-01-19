@@ -15,7 +15,7 @@ MyGlfwWindow::MyGlfwWindow(int width, int height, std::string title) : width(wid
 
     // Configure callbacks
     // The lambda function can only get access to the class method by using `glfwGetWindowUserPointer`
-    auto lambda_resize_window = [](GLFWwindow *w, int width, int height)
+    void (*lambda_resize_window)(GLFWwindow *, int, int) = [](GLFWwindow *w, int width, int height)
     {
         static_cast<MyGlfwWindow *>(glfwGetWindowUserPointer(w))->resize_window(w, width, height);
     };
