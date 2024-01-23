@@ -24,9 +24,12 @@ MyGlfwWindow::MyGlfwWindow(int width, int height, std::string title) : width(wid
 
 void MyGlfwWindow::resize_window(GLFWwindow *window, int width, int height)
 {
-    MyGlfwWindow *my_window_ptr = static_cast<MyGlfwWindow *>(glfwGetWindowUserPointer(window));
-    my_window_ptr->width = width;
-    my_window_ptr->height = height;
+    // MyGlfwWindow *my_window_ptr = static_cast<MyGlfwWindow *>(glfwGetWindowUserPointer(window));
+    // my_window_ptr->width = width;
+    // my_window_ptr->height = height;
+
+    this->width = width;
+    this->height = height;
 }
 
 void MyGlfwWindow::processInput()
