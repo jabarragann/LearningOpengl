@@ -12,7 +12,10 @@ public:
     GLFWwindow *window_ptr;
 
     MyGlfwWindow(int width, int height, std::string);
-    void resize_window(GLFWwindow *window, int width, int height);
+
+    void configure_callbacks();
+    void resize_window_cb(GLFWwindow *window, int width, int height);
+    void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
     void make_context_current() { glfwMakeContextCurrent(window_ptr); };
 
