@@ -1,21 +1,23 @@
 # Opengl learning repo
 
+* Tested in Ubuntu 20.04.
+* Codes based on <https://learnopengl.com/>
+
 ## Dependencies
 
-Install glfw3
+1. Install glfw3
 ```bash
 sudo apt-get install libglfw3
 sudo apt-get install libglfw3-dev
-sudo apt-get install libglm-dev
 ```
 or compiled directly. See [guide to compile and link glfw3](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
+2. Add glad include and src directories.
 
-
-Add glad include and src directories.
-
-
-Copy glm header files into the include folder
+3. Copy glm header files into the include folder or install with
+```
+sudo apt-get install libglm-dev
+```
 
 ## Compiling instructions:
 Compile all executables with `make all`.
