@@ -6,6 +6,7 @@ Install glfw3
 ```bash
 sudo apt-get install libglfw3
 sudo apt-get install libglfw3-dev
+sudo apt-get install libglm-dev
 ```
 or compiled directly. See [guide to compile and link glfw3](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
