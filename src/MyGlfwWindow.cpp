@@ -56,6 +56,6 @@ void MyGlfwWindow::key_callback(GLFWwindow *window, int key, int scancode, int a
         std::cout << "E key pressed" << std::endl;
     else if ((key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q) && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window_ptr, true);
-    // else
-    //     std::cout << "Key pressed: " << key << std::endl;
+    else
+        std::cout << "Key pressed: " << key << std::endl;
 }

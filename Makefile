@@ -5,7 +5,7 @@ BUILD_ABS_PATH = $(shell pwd)/$(BUILD)
 #This could be accomplish too with --> BUILD_ABS_PATH = \"$$(pwd)/$(BUILD)\"
 INCLUDE = include
 
-ALL_INCLUDES = -I$(GLAD_INC) -I./$(INCLUDE)
+ALL_INCLUDES = -I$(GLAD_INC) -I./$(INCLUDE) #-I/home/juan1995/learning/glfw/glfw/include
 GLAD = ./glad
 GLAD_INC = $(GLAD)/include
 
@@ -16,7 +16,11 @@ CFLAGS = -Wall -O2 $(ALL_INCLUDES)
 # CFLAGS = -Wall -ggdb -O3 $(INCLUDES)
 CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -pedantic $(ALL_INCLUDES) -DBIN_PATH=$(BUILD_ABS_PATH) 
 # CXXFLAGS = -Wall -ggdb -O3 $(INCLUDES)
-LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
+
+# glfw3 depends on X11 and dl and therefore needs to go first
+LDFLAGS := -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl 
+# Alternative
+# LDFLAGS := -L/home/juan1995/learning/glfw/glfw/build/src -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl 
 
 # SHARED OBJECTS AND TARGETS  (Targets are executables)
 
