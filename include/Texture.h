@@ -17,4 +17,5 @@ public:
     Texture(const std::string &path);
 
     void config_wrapping_filtering();
+    void create_texture(int nrChannels, unsigned char *data);
 };
