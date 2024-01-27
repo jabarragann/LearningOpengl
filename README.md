@@ -40,6 +40,9 @@ make build/create_triangle2
 * GLFW key callbacks is not working well for ubuntu 20.04. Function keys are always returning a value of -1. **Solved:** by compiling GLFW from source.  See [guide to compile and link glfw3](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
 ## TODO
+
+* Add external dependencias to the project. GLM, GLFW, GLAD, etc.
+* Separate example executables from source code.
 * make a folder for executables. Have makefile automatically get all executables from folder.
 
 ```bash
