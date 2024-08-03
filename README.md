@@ -5,6 +5,30 @@
 
 ## Dependencies
 
+### Alternative A: Download source code and compile - Updated on 08/03/2024
+
+1. Download and compile GLFW.
+```
+cd external
+git clone git@github.com:glfw/glfw.git
+git checkout tags/3.4 -b v3.4-branch
+cd glfw
+mkdir build
+cmake ..  -D GLFW_BUILD_WAYLAND=0
+make
+sudo make install
+```
+
+2. Download GLM source code
+```
+cd external
+git clone git@github.com:g-truc/glm.git
+cd glm
+git checkout tags/0.9.9.8 -b v0.9.9.8-branch
+```
+
+### Alternative B: Install precompiled binaries
+
 1. Install glfw3
 ```bash
 sudo apt-get install libglfw3

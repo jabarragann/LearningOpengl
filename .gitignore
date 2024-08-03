@@ -2,3 +2,4 @@ build
 Makefile_VULKAN
 .vscode
 include/glm
+external/

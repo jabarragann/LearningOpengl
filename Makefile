@@ -5,7 +5,7 @@ BUILD_ABS_PATH = $(shell pwd)/$(BUILD)
 #This could be accomplish too with --> BUILD_ABS_PATH = \"$$(pwd)/$(BUILD)\"
 INCLUDE = include
 
-ALL_INCLUDES = -I$(GLAD_INC) -I./$(INCLUDE) #-I/home/juan1995/learning/glfw/glfw/include
+ALL_INCLUDES = -I$(GLAD_INC) -I./$(INCLUDE) -I./external/glm  #-I/home/juan1995/learning/glfw/glfw/include
 GLAD = ./glad
 GLAD_INC = $(GLAD)/include
 
